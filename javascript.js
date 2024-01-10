@@ -1,21 +1,21 @@
-let userOrder = prompt(
+let flavors = prompt(
   "Please enter your desired flavors, separated by commas:"
   )
 
-let flavors = userOrder.split(","); //split each comma separated entry into an array of strings
+let userOrder = flavors.split(","); // split each comma separated entry into an array of strings
 
-for (let i in flavors) {
-  flavors[i].trim
+for (let i in userOrder) {
+  userOrder[i] = userOrder[i].trim() // remove any whitespace
 }
 
-// const orderObj = {}
+const orderObj = {} // create an empty object to hold the order
 
-// for (let i in flavors) {
-//   if (flavors[i] in orderObj) {
-//     orderObj[flavors[i]]++; // increment the flavor's value by 1
-//     } else {
-//       orderObj[flavors[i]] = 1; // add the flavor and initialize the count to 1
-//     }
-//   }
+for (let i in userOrder) {
+  if (userOrder[i] in orderObj) { // check if the flavor is already in the object
+    orderObj[userOrder[i]]++; // increment the flavor's value by 1
+    } else {
+      orderObj[userOrder[i]] = 1; // add the flavor and initialize the count to 1
+    }
+  }
 
-//   console.table(orderObj);
+  console.table(orderObj);
